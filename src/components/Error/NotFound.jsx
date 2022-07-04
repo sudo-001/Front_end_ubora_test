@@ -8,7 +8,6 @@ const ErrorStyled = styled.div`
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    border: solid red;
     height: 80vh;
 `
 const Label = styled.h2`
