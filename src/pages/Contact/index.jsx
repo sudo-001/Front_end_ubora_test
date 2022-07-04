@@ -56,6 +56,7 @@ const CardContainer = styled.div`
     display: flex;
     flex-direction: column;
     padding: 20px 40px;
+    align-items: center;
     
 `
 
@@ -66,15 +67,31 @@ function Contact() {
     function handleSearch(e) {
         e.preventDefault();
         let input = document.querySelector("input");
-
-        console.log(input.value);
+        if (input.value == '') {
+            axios.get("http://localhost:5000/api/contact")
+                .then((res) => {
+                    console.log(res);
+                    setContactsList(res.data);
+                    setLoadingContacts(false);
+                })
+                .catch((err) => console.log(err))
+        } else {
+            setLoadingContacts(true)
+            axios.get("http://localhost:5000/api/contact/find/" + input.value)
+                .then((res) => {
+                    console.log(res);
+                    setContactsList(res.data);
+                    setLoadingContacts(false);
+                })
+                .catch((err) => console.log(err))
+        }
     }
 
     useEffect(() => {
         axios.get("http://localhost:5000/api/contact")
             .then((res) => {
                 console.log(res);
-                setContactsList( res.data );
+                setContactsList(res.data);
                 setLoadingContacts(false);
             })
             .catch((err) => console.log(err))
@@ -83,18 +100,20 @@ function Contact() {
     return (
         <ContactHomeWrapper>
             <FormContainer>
-                <form>
-                    <input type='search' name='keyword' placeholder='Rechercher' onKeyUp={handleSearch} />
+                <form onSubmit={handleSearch}>
+                    <input type='search' name='keyword' placeholder='Rechercher par nom' onKeyUp={handleSearch} />
                     <button type="submit" >Rechercher</button>
                 </form>
             </FormContainer>
 
             <ResultsContainer>
                 {isLoadingContacts ? (
-                <Loader />
+                    <CardContainer>
+                        <Loader />
+                    </CardContainer>
                 ) : (
-                   <CardContainer>
-                        { contactsList.map((contact) => (
+                    <CardContainer>
+                        {contactsList.map((contact) => (
                             <Card
                                 key={contact._id}
                                 nom={contact.nom}
@@ -104,7 +123,7 @@ function Contact() {
                                 projets={contact.projets}
                             />
                         ))}
-                   </CardContainer>
+                    </CardContainer>
                 )}
             </ResultsContainer>
         </ContactHomeWrapper>

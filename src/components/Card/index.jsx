@@ -10,6 +10,7 @@ const CardWrapper = styled.div`
     background-color: ${Colors.second};
     border-radius: 20px;
     transition: transform 300ms;
+    width: 80%;
 
     &:hover {
         transform: scale(1.01);
