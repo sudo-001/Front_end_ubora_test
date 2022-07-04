@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 const HeaderStyled = styled.div`
-    border: solid red;
     display: flex;
     padding: 20px 70px;
     justify-content: space-between;

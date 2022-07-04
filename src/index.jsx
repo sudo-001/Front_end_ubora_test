@@ -9,6 +9,7 @@ import Authentification from './pages/Auth';
 import Footer from './components/Footer';
 import AddContact from './pages/Contact/Add';
 import Contact from './pages/Contact';
+import NotFound from './components/Error/NotFound';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -21,6 +22,7 @@ root.render(
         <Route path="/connection" element={<Authentification />} />
         <Route path="/contact/add" element={<AddContact />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/:something" element={<NotFound />} />
       </Routes>
 
       <Footer />

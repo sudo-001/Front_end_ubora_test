@@ -2,6 +2,7 @@ import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import homeRight from '../../images/homeRight.png'
 import Colors from '../../utils/style/Colors';
+import { Link } from 'react-router-dom';
 
 const HomeStyle = styled.div`
   height: 80vh;
@@ -80,7 +81,7 @@ function Home() {
         <h1><span>A</span>nnuary <span>G</span>estion</h1>
         <p>La gestion des membres de vos équipes de développeur n'a jamais été aussi facile. D'un clic gérez l'annuaire des vos membres</p>
 
-        <BtnConsult>Consulter l'annuaire</BtnConsult>
+        <Link to="/contact"><BtnConsult>Consulter l'annuaire</BtnConsult></Link>
 
       </LeftHomeStyled>
 
