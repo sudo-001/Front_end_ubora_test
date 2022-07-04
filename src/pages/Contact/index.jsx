@@ -68,6 +68,7 @@ function Contact() {
         e.preventDefault();
         let input = document.querySelector("input");
         if (input.value == '') {
+            setLoadingContacts(true)
             axios.get("http://localhost:5000/api/contact")
                 .then((res) => {
                     console.log(res);
