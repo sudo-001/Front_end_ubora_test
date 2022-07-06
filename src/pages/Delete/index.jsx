@@ -2,7 +2,7 @@ import axios from 'axios';
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import deletedContacts from '../../utils/Deleted_Contacts';
+
 
 
 function Delete() {
@@ -18,7 +18,6 @@ function Delete() {
                     // console.log("contact supprimé");
                     setDeletedContact( res.data )
                     console.log(res)
-                    deletedContacts.push(res.data)
                 }))
                 .catch((err) => console.log(err))
         } else {
@@ -27,7 +26,7 @@ function Delete() {
         window.location.href="/contact";
     }, [])
 
-    console.log(deletedContact);
+    
 
     return (
         <div></div>

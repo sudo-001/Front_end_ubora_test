@@ -34,7 +34,6 @@ const Adresse = styled.div`
 const BtnContainerStyled = styled.div`
     display: flex;
     flex-wrap: wrap;
-    border: solid red;
     
     button{
         padding: 10px;
