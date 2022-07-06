@@ -109,7 +109,7 @@ function AddContact() {
             .then((res) => {
                 console.log(res);
                 alert('Contact ajouté avec succès')
-
+                window.location.href = "/contact"
             })
             .catch(err => {
                 console.log(err)

@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
+import LoginImage from '../../images/login-form.png'
 
 const AuthWrapper = styled.div`
-    padding: 20px 70px;
+    padding: 40px 70px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -21,6 +22,8 @@ const FormImg = styled.div`
     height: 50%;
     // border: solid green;
     border-radius: 20px 20px 0px 0px ;
+    background: url(${LoginImage}) no-repeat;
+    background-size: contain;
 `
 
 const FormStyled = styled.form`

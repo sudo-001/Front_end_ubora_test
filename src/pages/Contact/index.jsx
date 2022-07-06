@@ -117,6 +117,7 @@ function Contact() {
                         {contactsList.map((contact) => (
                             <Card
                                 key={contact._id}
+                                id={contact._id}
                                 nom={contact.nom}
                                 prenom={contact.prenom}
                                 telephone={contact.telephone}

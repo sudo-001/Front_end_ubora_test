@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Colors from '../../utils/style/Colors';
+import { Link } from 'react-router-dom';
 
 const CardWrapper = styled.div`
     padding: 20px 30px;
@@ -33,6 +34,7 @@ const Adresse = styled.div`
 const BtnContainerStyled = styled.div`
     display: flex;
     flex-wrap: wrap;
+    border: solid red;
     
     button{
         padding: 10px;
@@ -42,7 +44,7 @@ const BtnContainerStyled = styled.div`
         cursor: pointer;
     }
 
-    .btn1 {
+    .consulter {
         border: solid green 1px;
         &:hover {
             background: ${Colors.fourth};
@@ -50,28 +52,38 @@ const BtnContainerStyled = styled.div`
         }
     }
 
-    .btn2 {
+    .tache {
         border: solid ${Colors.primary} 1px;
         &:hover {
             background: ${Colors.primary};
             color: white;
         }
     }
+
+    .delete {
+        border: solid ${Colors.thirt} 1px;
+        &:hover {
+            background: ${Colors.thirt};
+            color: white;
+        }
+    }
 `
 
-function Card({ nom, prenom, email, telephone,  projets}) {
-    return(
+function Card({ id, nom, prenom, email, telephone }) {
+
+    return (
         <CardWrapper>
-            <h3>Nom:{ nom }</h3>
+            <h3>Nom:{nom}</h3>
             <h3>Prenom: {prenom}</h3>
             <Adresse>
-                <h3>Téléphone: <span>{ telephone }</span></h3>
-                <h3>email: <span>{ email }</span></h3>
+                <h3>Téléphone: <span>{telephone}</span></h3>
+                <h3>email: <span>{email}</span></h3>
             </Adresse>
 
             <BtnContainerStyled>
-                <button className="btn1">Consulter</button>
-                <button className="btn2">Assigner une tache</button>
+                <button className="consulter">Consulter</button>
+                <button className="tache">Assigner une tache</button>
+                <Link to={"/contact/delete/"+id}><button className='delete'>Supprimer</button></Link>
             </BtnContainerStyled>
         </CardWrapper>
     )
